@@ -39,7 +39,7 @@ void DeleteAtEnd(){ 		//delete node at end
 	}
 }
 
-void DeleteElement(int x) {	//Deleting particular element from the list
+void DeleteElement(int x) {	// delete particular element from the list
 	
 	Node *ptr = new Node;
 	ptr = head;
