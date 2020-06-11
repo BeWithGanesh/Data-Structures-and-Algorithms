@@ -57,6 +57,7 @@ void InsertAtPos(int pos, int new_data){		// Inserts at particular position
 	temp->prev = ptr;
 	temp->next = ptr->next;
 	ptr->next = temp;
+	temp->next->prev=temp;
 	
 }
 }
