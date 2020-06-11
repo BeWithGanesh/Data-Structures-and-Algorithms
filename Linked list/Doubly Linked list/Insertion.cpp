@@ -63,6 +63,40 @@ void InsertAtPos(int pos, int new_data){		// Inserts at particular position
 }
 
 
+void InsertBefore(Node *head,int x,int new_data){ 		// Inserts a node before the given node
+	Node *temp = new Node;
+	temp->prev = NULL;
+	temp->data = new_data;
+	temp->next = NULL;
+	Node *ptr = new Node;
+	ptr=head;
+	while(ptr->data != x){
+		ptr=ptr->next;
+	}
+	temp->prev=ptr->prev;
+	ptr->prev=temp;
+	temp->prev->next=temp;
+	temp->next=ptr;
+	
+}
+
+void InsertAfter(Node *head,int x,int new_data){ 		// Inserts a node after the given node
+	Node *temp = new Node;
+	temp->prev = NULL;
+	temp->data = new_data;
+	temp->next = NULL;
+	Node *ptr = new Node;
+	ptr=head;
+	while(ptr->data != x){
+		ptr=ptr->next;
+	}
+	temp->next=ptr->next;
+	temp->prev=ptr;
+	temp->next->prev=temp;
+	ptr->next=temp;
+}
+
+
 void display(){		// to print the linked list
 	Node *ptr = head;
 	while(ptr != NULL){
@@ -87,6 +121,10 @@ int main(){
 	InsertAtPos(3,22);
 	InsertAtPos(1,2);
 	display();
+	InsertBefore(head,30,29);
+	display();
+	InsertAfter(head,30,31);
+	display();
 	
 	return 0;
 }
@@ -97,4 +135,6 @@ Output:
 10 20 30
 10 20 30 40 50
 2 10 20 22 30 40 50
+2 10 20 22 29 30 40 50
+2 10 20 22 29 30 31 40 50
 */
