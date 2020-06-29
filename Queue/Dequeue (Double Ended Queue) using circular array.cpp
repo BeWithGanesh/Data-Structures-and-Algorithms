@@ -168,7 +168,7 @@ void Deque::deleterear() {  			// function to delete the element through rear en
 } 
   
  
-// Driver co
+// Driver code
 int main() 
 { 
     Deque dq(5); 
