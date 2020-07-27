@@ -23,7 +23,7 @@ void getJosephusPosition(int m ,int n){
 		prev->next=newNode(i);
 		prev=prev->next;
 	}
-	prev->next=head; // connect the lst node with head
+	prev->next=head; // connect the last node with head
 	
 	Node *ptr1=head;
 	Node *ptr2=head;
