@@ -8,6 +8,7 @@ class Node{
 	public:
 		int data;
 		Node* next;
+		
 	
 };
 
@@ -33,16 +34,13 @@ void Display(Node *node){
 
 }
 
-Node* merge(Node *a, Node *b){
-	
-	Node temp;
-	Node *tail = &temp;
-	temp.next = NULL;
+void merge(Node *a, Node *b, Node **c){
 	
 	while(a != NULL && b != NULL){
 		if(a->data == b->data){
-			Insert((&tail->next),a->data);
-			tail = tail->next;
+			
+			Insert(c,a->data);
+			
 			a = a->next;
 			b = b->next;
 		}
@@ -54,8 +52,6 @@ Node* merge(Node *a, Node *b){
 		}
 	}
 	
-	return(temp.next);
-	
 }
 
 
@@ -65,7 +61,6 @@ int main(){
 	
 	Node *a = NULL;
 	Node *b = NULL;
-	
 	Node* intersect = NULL;
 	
 	Insert(&a,50);
@@ -80,7 +75,7 @@ int main(){
 	
 	
 	// ur code
-	intersect = merge(a,b);
+	merge(a,b,&intersect);
 	
 	
 	Display(intersect);
