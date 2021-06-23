@@ -11,29 +11,40 @@ void addEdge(vector<int> adj[],int u,int v){
 	
 }
 
-bool chkCycle(int s, int prev, vector<int> adj[], vector<int> &vis){
+bool chkCycle(int s,int V, vector<int> adj[],vector<int> &vis){
 	
+	queue<pair<int,int>> q;
+	q.push({s,-1});
 	vis[s] = 1;
-	for(auto it : adj[s]){
-		if(vis[it] == 0){
-			if(chkCycle(it,s,adj,vis)){
-				return true;
+	
+	while(!q.empty()){
+		
+		int node = q.front().first;
+		int prev = q.front().second;
+		q.pop();
+		
+		for(auto it:adj[node]){
+			if(vis[it]==0){
+				vis[it]=1;
+				q.push({it,node});
 			}
-			else if(it != prev){
+			else if(prev != it){
 				return true;
 			}
 		}
 	}
+	
 	return false;
 }
 
-bool Cycle(vector<int> adj[], int V){
+bool Cycle(vector<int> adj[],int V){
 	
-	vector<int> vis(V,0);
+	vector<int> vis(V,0); // to track visited elements
 	
 	for(int i=0;i<V;i++){
+		
 		if(vis[i] == 0){
-			if(chkCycle(i,-1,adj,vis)){
+			if(chkCycle(i,V,adj,vis)){
 				return true;
 			}
 		}
