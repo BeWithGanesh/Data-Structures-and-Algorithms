@@ -36,7 +36,7 @@ void shortestPath(vector<int> adj[],int V,int S){
 	}
 	
 	for(int i=0;i<V;i++){
-		cout<<i<<"->"<<dist[i];
+		cout<<"source:0->"<<i<<"->"<<dist[i];
 		cout<<endl;
 	}
 	
@@ -64,9 +64,10 @@ int main(){
 
 // Output:
 
-// 0->0
-// 1->1
-// 2->1
-// 3->2
-// 4->1
+// source:0->0->0
+// source:0->1->1
+// source:0->2->1
+// source:0->3->2
+// source:0->4->1
+// 
 //  
